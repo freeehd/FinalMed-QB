@@ -1,0 +1,12 @@
+{
+  "name": "wqb/question-bank",
+  "type": "wordpress-plugin",
+  "autoload": {
+    "psr-4": {
+      "WQB\\": "includes/"
+    }
+  },
+  "require": {
+    "php": ">=7.4"
+  }
+}

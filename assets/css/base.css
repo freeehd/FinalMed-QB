@@ -1,0 +1,292 @@
+/* Base Styles - Shared across all pages */
+body {
+  background-color: #f5f5f5;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+}
+
+/* --- Polished Access Denied Card --- */
+.wqb-access-denied {
+    max-width: 600px;
+    margin: 60px auto;
+    padding: 40px;
+    background: #ffffff;
+    border: 1px solid #e2e4e7;
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+    text-align: center;
+}
+
+.wqb-access-denied-icon {
+    font-size: 3em;
+    margin-bottom: 20px;
+}
+
+.wqb-access-denied h2 {
+    font-size: 1.8em;
+    font-weight: 600;
+    color: #1d2327;
+    margin: 0 0 10px 0;
+    border-bottom: none; /* Override other h2 styles */
+}
+
+.wqb-access-denied p {
+    font-size: 1.1em;
+    color: #50575e;
+    margin-bottom: 30px;
+}
+
+.wqb-access-denied .wqb-button-primary {
+    display: inline-block;
+    text-decoration: none;
+}
+
+#wqb-app-root,
+#wqb-review-incorrect-root,
+#wqb-review-practice-root,
+#wqb-dashboard-root,
+#wqb-staging-area-root {
+  /* Apply general styles to all root elements */
+  font-family: inherit;
+  max-width: 1200px;
+  margin: 20px auto;
+  background: #ffffff;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  min-height: 400px;
+  display: block;
+  visibility: visible;
+  padding: 20px;
+  
+}
+
+.wqb-loader,
+.wqb-error,
+.wqb-access-denied {
+  padding: 40px;
+  text-align: center;
+  color: #666;
+  background: #fff;
+}
+
+/* Access Denied Page Styles */
+.wqb-access-denied {
+  padding: 60px 30px;
+  text-align: center;
+  background: #fff;
+  border-radius: 8px;
+  margin: 20px auto;
+  max-width: 600px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.wqb-access-denied .wqb-error-icon {
+  font-size: 3rem;
+  margin-bottom: 20px;
+  color: #a83c44; /* Match theme color */
+}
+
+.wqb-access-denied h3 {
+  color: #333;
+  font-size: 1.8rem;
+  margin-bottom: 15px;
+}
+
+.wqb-access-denied p {
+  color: #666;
+  font-size: 1.1rem;
+  margin-bottom: 10px;
+}
+
+/* Button Styles */
+.wqb-button-primary,
+.wqb-button-secondary,
+.wqb-button-danger {
+  margin-bottom: 10px;
+  padding: 12px 20px;
+  border: none;
+  color: white;
+  font-size: 0.9rem;
+  font-weight: 500;
+  cursor: pointer;
+  border-radius: 4px;
+  transition: background-color 0.2s ease;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+
+.wqb-button-primary {
+  background: #28a745;
+}
+
+.wqb-button-primary:hover {
+  background: #218838;
+}
+
+.wqb-button-secondary {
+  background: #6c757d;
+}
+
+.wqb-button-secondary:hover {
+  background: #5a6268;
+}
+
+.wqb-button-danger {
+  background: #dc3545;
+}
+
+.wqb-button-danger:hover {
+  background: #c82333;
+}
+
+.wqb-active-session-dialog .wqb-session-actions button {
+  flex: 1;
+  padding: 10px 16px;
+  border: none;
+  border-radius: 6px;
+  font-size: 0.875rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  line-height: 1;
+}
+
+button i,
+button svg,
+.wqb-button-primary i,
+.wqb-button-primary svg,
+.wqb-button-secondary i,
+.wqb-button-secondary svg,
+.wqb-button-danger i,
+.wqb-button-danger svg {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  line-height: 1;
+  vertical-align: middle;
+}
+
+/* Loading States */
+.wqb-loading-spinner {
+  width: 40px;
+  height: 40px;
+  border: 4px solid #f3f3f3;
+  border-top: 4px solid #a83c44;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+  margin: 0 auto 20px;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+/* Error States */
+.wqb-error-icon {
+  font-size: 3rem;
+  margin-bottom: 20px;
+}
+
+/* Clean, minimal focus states */
+input[type="checkbox"]:focus,
+input[type="radio"]:focus {
+  outline: 2px solid #a83c44;
+  outline-offset: 2px;
+}
+
+button:focus {
+  outline: 2px solid #a83c44;
+  outline-offset: 2px;
+}
+
+/* Mobile Responsiveness */
+@media (max-width: 768px) {
+  #wqb-app-root,
+  #wqb-review-incorrect-root,
+  #wqb-review-practice-root,
+  #wqb-dashboard-root,
+  #wqb-staging-area-root {
+    margin: 10px;
+  }
+
+  .wqb-button-primary,
+  .wqb-button-secondary,
+  .wqb-button-danger {
+    padding: 10px 16px;
+    font-size: 0.85rem;
+    gap: 6px;
+  }
+
+  /* Ensure all option containers use proper flex alignment on mobile */
+  .wqb-option {
+    display: flex !important;
+    align-items: flex-start !important;
+    gap: 8px !important;
+  }
+
+  .wqb-option input[type="radio"] {
+    margin: 0 !important;
+    align-self: flex-start !important;
+    margin-top: 0 !important;
+    flex-shrink: 0 !important;
+  }
+
+  .wqb-option-letter {
+    margin: 0 !important;
+    align-self: flex-start !important;
+    flex-shrink: 0 !important;
+    line-height: 1.2 !important;
+  }
+
+  .wqb-option-text {
+    margin-top: 0 !important;
+    align-self: flex-start !important;
+    flex: 1 !important;
+    line-height: 1.4 !important;
+  }
+}
+
+@media (max-width: 480px) {
+  #wqb-app-root,
+  #wqb-review-incorrect-root,
+  #wqb-review-practice-root,
+  #wqb-dashboard-root,
+  #wqb-staging-area-root {
+    margin: 5px;
+  }
+
+  .wqb-button-primary,
+  .wqb-button-secondary,
+  .wqb-button-danger {
+    padding: 8px 14px;
+    font-size: 0.8rem;
+    gap: 5px;
+  }
+
+  /* Tighter spacing for small mobile screens */
+  .wqb-option {
+    gap: 6px !important;
+  }
+
+  .wqb-option-letter {
+    font-size: 0.75rem !important;
+    min-width: 14px !important;
+  }
+
+  .wqb-option-text {
+    font-size: 0.8rem !important;
+  }
+}

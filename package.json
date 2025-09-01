@@ -1,0 +1,17 @@
+{
+  "name": "wordpress-question-bank",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "build:js": "esbuild assets/js/*.js --minify --target=es2019 --outdir=assets/js --out-extension:.js=.min.js",
+    "build:css": "esbuild assets/css/*.css --minify --outdir=assets/css --out-extension:.css=.min.css",
+    "build": "npm run build:js && npm run build:css"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "devDependencies": {
+    "esbuild": "^0.25.9"
+  }
+}
