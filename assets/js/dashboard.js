@@ -12,6 +12,16 @@ jQuery(document).ready(($) => {
   }
 
   function renderDashboard(data) {
+
+     // NEW: Check user status and show modals
+    const isPremium = data.is_premium_user;
+    const allQuestionsAnswered = data.all_questions_answered;
+    if (!isPremium && allQuestionsAnswered) {
+      window.WQBModalUtils.showCompletionModal();
+    } else if (!isPremium) {
+      window.WQBModalUtils.showUpsellModal();
+    }
+
     const stats = data.performance_stats
     const heatmapData = data.heatmap_data
 

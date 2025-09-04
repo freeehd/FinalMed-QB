@@ -4,6 +4,111 @@ body {
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
 }
 
+/* --- Prominent Upsell Modal Styles (Corrected for Centering) --- */
+
+.wqb-modal-overlay {
+  /* Core Positioning & Sizing */
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 9999;
+
+  /* Centering the Modal */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  /* Appearance & Animation */
+  background: rgba(0, 0, 0, 0.75);
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease, visibility 0s linear 0.3s;
+}
+
+.wqb-modal-overlay.is-visible {
+  opacity: 1;
+  visibility: visible;
+  transition: opacity 0.3s ease;
+}
+
+.wqb-modal {
+  background: #ffffff;
+  padding: 25px 30px;
+  border-radius: 12px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+  text-align: center;
+  width: 90%;
+  max-width: 550px;
+  /* Start slightly scaled down for the animation */
+  transform: scale(0.95);
+  transition: transform 0.3s ease;
+}
+
+/* Animate the modal into place when the overlay is visible */
+.wqb-modal-overlay.is-visible .wqb-modal {
+    transform: scale(1);
+}
+
+.wqb-modal-header h2 {
+  font-size: 24px;
+  margin-top: 0;
+  margin-bottom: 15px;
+  color: #1d2327;
+}
+
+.wqb-modal-body p {
+  font-size: 16px;
+  line-height: 1.6;
+  margin-bottom: 15px;
+  color: #444;
+}
+
+.wqb-modal-body ul {
+  list-style-type: '✓ ';
+  padding-left: 20px;
+  text-align: left;
+  margin: 20px auto;
+  display: inline-block;
+  color: #444;
+}
+
+.wqb-modal-body ul li {
+  margin-bottom: 10px;
+}
+
+.wqb-modal-footer {
+  margin-top: 25px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.wqb-modal-upgrade-btn {
+  display: block;
+  width: 100%;
+  text-align: center;
+  padding: 12px 20px !important;
+  font-size: 16px !important;
+  font-weight: bold !important;
+  text-decoration: none !important;
+}
+
+.wqb-modal-close-btn {
+  background: transparent !important;
+  border: none !important;
+  color: #555 !important;
+  text-decoration: underline;
+  box-shadow: none !important;
+  padding: 8px !important;
+}
+
+.wqb-modal-close-btn:hover {
+  color: #000 !important;
+}
+
+
 /* --- Polished Access Denied Card --- */
 .wqb-access-denied {
     max-width: 600px;

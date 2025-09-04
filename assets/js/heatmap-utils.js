@@ -369,3 +369,79 @@ window.WQBHeatmapUtils = {
 
 // Cleanup on page unload
 window.addEventListener("beforeunload", cleanupAllHeatmaps)
+
+
+
+// NEW: Add a new utility for showing modals, accessible globally.
+window.WQBModalUtils = {
+  showUpsellModal: function() {
+    const modalHtml = `
+      <div class="wqb-modal-overlay">
+        <div class="wqb-modal">
+          <div class="wqb-modal-header">
+            <h2>🚀 Unlock Your Full Potential!</h2>
+          </div>
+          <div class="wqb-modal-body">
+            <p>You're currently using the free version with access to 100 sample questions.</p>
+            <p><strong>Upgrade now to unlock the complete premium package:</strong></p>
+            <ul>
+              <li>The complete bank of over 9,000 questions.</li>
+              <li>Our interactive, UKMLA-focused Textbook.</li>
+              <li>Over 100+ animated videos for various key topics.</li>
+              <li>Detailed performance dashboards and analytics.</li>
+              <li>Track your textbook progress and easily revisit topics.</li>
+            </ul>
+          </div>
+          <div class="wqb-modal-footer">
+            <a href="/all-courses" class="wqb-button-primary wqb-modal-upgrade-btn">Upgrade to Premium</a>
+            <button class="wqb-button-secondary wqb-modal-close-btn">Continue with Free Version</button>
+          </div>
+        </div>
+      </div>
+    `;
+    this.showModal(modalHtml);
+  },
+
+  showCompletionModal: function() {
+    const modalHtml = `
+      <div class="wqb-modal-overlay">
+        <div class="wqb-modal">
+          <div class="wqb-modal-header">
+            <h2>🎉 Congrats, you burned through those questions!</h2>
+          </div>
+          <div class="wqb-modal-body">
+            <p>You've successfully completed all the questions in our free sample.</p>
+            <p><strong>Ready to take the next step in your UKMLA preparation?</strong></p>
+            <p>Upgrade now to unlock the full 9,000+ question bank, our interactive textbook, and detailed analytics to ace your exam.</p>
+          </div>
+          <div class="wqb-modal-footer">
+            <a href="/all-courses" class="wqb-button-primary wqb-modal-upgrade-btn">Explore Premium Membership</a>
+            <button class="wqb-button-secondary wqb-modal-close-btn">Maybe Later</button>
+          </div>
+        </div>
+      </div>
+    `;
+    this.showModal(modalHtml);
+  },
+  
+  showModal: function(modalHtml) {
+    // Prevent multiple modals from showing at once
+    if (jQuery('.wqb-modal-overlay').length > 0) {
+      return;
+    }
+
+    const $ = jQuery;
+    $('body').append(modalHtml);
+    setTimeout(function() {
+      $('.wqb-modal-overlay').addClass('is-visible');
+    }, 10);
+
+    $('body').off('click', '.wqb-modal-close-btn').on('click', '.wqb-modal-close-btn', function() {
+      const $overlay = $('.wqb-modal-overlay');
+      $overlay.removeClass('is-visible');
+      setTimeout(function() {
+        $overlay.remove();
+      }, 300);
+    });
+  }
+};

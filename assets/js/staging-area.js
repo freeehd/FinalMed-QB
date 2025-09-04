@@ -10,7 +10,7 @@ jQuery(document).ready(($) => {
     return // Exit if the staging area element isn't on the page
   }
 
-  // Motivational quotes for UMKLA exams
+  // Motivational quotes for UKMLA exams
   const motivationalQuotes = [
     {
       quote: "Success is not final, failure is not fatal: it is the courage to continue that counts.",
@@ -103,6 +103,16 @@ jQuery(document).ready(($) => {
   }
 
   function renderStagingArea(data) {
+
+   // NEW: Check user status and show modals
+    const isPremium = data.is_premium_user;
+    const allQuestionsAnswered = data.all_questions_answered;
+    if (!isPremium && allQuestionsAnswered) {
+      window.WQBModalUtils.showCompletionModal();
+    } else if (!isPremium) {
+      window.WQBModalUtils.showUpsellModal();
+    }
+
     const stats = data.performance_stats
     const heatmapData = data.heatmap_data
     const username = data.username
@@ -119,7 +129,7 @@ jQuery(document).ready(($) => {
                 
                 <div class="wqb-staging-header">
                     <h1>Hi ${username}, welcome to the Finalmed Question Bank!</h1>
-                    <p class="wqb-staging-subtitle">Your comprehensive preparation platform for UMKLA exams</p>
+                    <p class="wqb-staging-subtitle">Your comprehensive preparation platform for UKMLA exams</p>
                 </div>
 
              
@@ -221,7 +231,7 @@ jQuery(document).ready(($) => {
                             </svg>
                         </div>
                         <div class="wqb-motivation-content">
-                            <h3>Good luck with your UMKLA exams!</h3>
+                            <h3>Good luck with your UKMLA exams!</h3>
                             <blockquote class="wqb-motivation-quote">
                                 "${quote.quote}"
                                 <cite>— ${quote.author}</cite>
